@@ -1,0 +1,14 @@
+# Rust build artifacts
+target/
+
+# Distribution/output bundles
+dist/
+
+# Workspace lockfile policy for library-first workspace
+Cargo.lock
+
+# Logs
+*.log
+
+# macOS
+.DS_Store

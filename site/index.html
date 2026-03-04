@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Codex Memory Core</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --ink: #111827;
+      --muted: #4b5563;
+      --card: #ffffff;
+      --line: #d1d5db;
+      --accent: #0f766e;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 55%, #fdfdfd 100%);
+    }
+    .wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+    .hero {
+      margin-bottom: 44px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3.8vw, 3.3rem);
+      letter-spacing: -0.02em;
+    }
+    .sub {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+      margin-bottom: 42px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn {
+      text-decoration: none;
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: #0f766e;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Deterministic AI Infrastructure</h1>
+      <p class="sub">Replayable. Verifiable. Convergent.</p>
+    </section>
+
+    <section class="grid" aria-label="Feature blocks">
+      <article class="card">
+        <h3>Deterministic Scoring</h3>
+        <p>Integer-only projection and scoring with committed candidate ordering and replay-verified score outputs.</p>
+      </article>
+      <article class="card">
+        <h3>Governance Enforcement</h3>
+        <p>Lifecycle transitions are rule-driven and cryptographically checked against replayed causal state.</p>
+      </article>
+      <article class="card">
+        <h3>Snapshot Convergence</h3>
+        <p>State snapshots bind global state hash, MMR root, and document-state commitments for replica alignment.</p>
+      </article>
+      <article class="card">
+        <h3>Divergence Detection</h3>
+        <p>MMR commitments and locator events provide deterministic divergence boundaries for sync workflows.</p>
+      </article>
+      <article class="card">
+        <h3>Document-Level Proofs</h3>
+        <p>Merkleized document state supports inclusion and non-membership proofs under deterministic ordering.</p>
+      </article>
+      <article class="card">
+        <h3>Delta Compression</h3>
+        <p>Cross-snapshot delta roots commit minimal changed document sets for selective, auditable transfer.</p>
+      </article>
+    </section>
+
+    <section class="cta" aria-label="Calls to action">
+      <a class="btn primary" href="../docs/WHITEPAPER.md">Request Technical Whitepaper</a>
+      <a class="btn" href="#">View Audit Bundle</a>
+    </section>
+  </main>
+</body>
+</html>

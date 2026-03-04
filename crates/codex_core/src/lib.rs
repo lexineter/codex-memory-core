@@ -1,0 +1,85 @@
+pub mod bytes;
+pub mod cme;
+pub mod delta_proof;
+pub mod doc_proof;
+pub mod engine;
+pub mod error;
+pub mod hash;
+pub mod hex;
+pub mod ledger;
+pub mod mmr;
+pub mod protocol;
+pub mod replay;
+pub mod schema;
+pub mod sync;
+pub mod trace_export;
+
+pub use error::{CodexError, CodexResult};
+
+pub const HASH_LEN: usize = 32;
+pub const PROTOCOL_VERSION: &str = "1.0.0";
+pub const DOC_ID_BYTES: usize = 32;
+pub const STATE_DELTA_BYTES: usize = 128;
+pub const DIM: u16 = 128;
+pub const DIM_V1: u16 = 128;
+
+// Domain separation constants (v1)
+pub const DOMAIN_LEDGER_HEADER: &[u8] = b"CODEX/LEDGER_HEADER/V1";
+pub const DOMAIN_EVENT: &[u8] = b"CODEX/EVENT/V1";
+pub const DOMAIN_CANDIDATE: &[u8] = b"CODEX/CANDIDATE/V1";
+pub const DOMAIN_PRESTATE: &[u8] = b"CODEX/PRESTATE/V1";
+pub const DOMAIN_REPLAY_STATE: &[u8] = b"CODEX/REPLAY/STATE/V1";
+pub const DOMAIN_PROJECTION: &[u8] = b"CODEX/PROJECTION/V1";
+pub const DOMAIN_CONTENT: &[u8] = b"CODEX/CONTENT/V1";
+pub const DOMAIN_DOC: &[u8] = b"CODEX/DOC/V1";
+pub const DOMAIN_DOCSTATE: &[u8] = b"CODEX/DOCSTATE/V1";
+pub const DOMAIN_QUERY: &[u8] = b"CODEX/QUERY/V1";
+pub const DOMAIN_QUERY_CONTEXT: &[u8] = b"CODEX/QUERY_CONTEXT/V1";
+pub const DOMAIN_OBSERVER: &[u8] = b"CODEX/OBSERVER/V1";
+pub const DOMAIN_RECURSION_CONTEXT: &[u8] = b"CODEX/RECURSION_CONTEXT/V1";
+pub const DOMAIN_QUERY_PROJECTION_COMMITMENT: &[u8] = b"CODEX/QUERY_PROJ_COMMIT/V1";
+pub const DOMAIN_SCORE: &[u8] = b"CODEX/SCORE/V1";
+pub const DOMAIN_LIFECYCLE: &[u8] = b"CODEX/LIFECYCLE/V1";
+pub const DOMAIN_SNAPSHOT: &[u8] = b"CODEX/SNAPSHOT/V1";
+pub const DOMAIN_DOC_AGG: &[u8] = b"CODEX/DOC_AGG/V1";
+pub const DOMAIN_DIVERGENCE: &[u8] = b"CODEX/DIVERGENCE/V1";
+pub const DOMAIN_INCLUSION_PROOF: &[u8] = b"CODEX/MMR_PROOF/V1";
+pub const DOMAIN_DOC_LEAF: &[u8] = b"CODEX/DOC_LEAF/V1";
+pub const DOMAIN_DOC_MERKLE: &[u8] = b"CODEX/DOC_MERKLE/V1";
+pub const DOMAIN_DOC_NONMEM: &[u8] = b"CODEX/DOC_NONMEM/V1";
+pub const DOMAIN_SNAPSHOT_DELTA: &[u8] = b"CODEX/SNAPSHOT_DELTA/V1";
+pub const DOMAIN_DELTA_DOC: &[u8] = b"CODEX/DELTA_DOC/V1";
+pub const DOMAIN_PROTOCOL: &[u8] = b"CODEX/PROTOCOL/V1";
+pub const DOMAIN_TRANSCRIPT: &[u8] = b"CODEX/TRANSCRIPT/V1";
+pub const DOMAIN_MMR_NODE: &[u8] = b"CODEX/MMR/NODE/V1";
+pub const DOMAIN_MMR_ROOT: &[u8] = b"CODEX/MMR/ROOT/V1";
+
+pub const MAGIC_LEDGER: &[u8; 8] = b"CODEXLDG";
+pub const MAGIC_INDEX: &[u8; 8] = b"CODEXIDX";
+pub const LEDGER_VERSION: u16 = 1;
+pub const SCHEMA_ID_V1: u16 = 1;
+pub const PARAMSET_ID_V1: u16 = 1;
+pub const HASH_ID_SHA256: u16 = 1;
+pub const COORD_TYPE_I16: u16 = 1;
+pub const COORD_TYPE: u16 = COORD_TYPE_I16;
+
+pub const FEATURE_JSON_MIRROR: u32 = 1 << 0;
+pub const FEATURE_OBSERVER_BLOCK: u32 = 1 << 1;
+pub const FEATURE_RECURSIVE_PROJECTION: u32 = 1 << 2;
+pub const FEATURE_SCORE_COMMITMENT: u32 = 1 << 3;
+pub const FEATURE_SCORE_PROOFS: u32 = 1 << 4;
+pub const FEATURE_LIFECYCLE_GOVERNANCE: u32 = 1 << 5;
+pub const FEATURE_SNAPSHOT_COMMITMENT: u32 = 1 << 6;
+pub const FEATURE_DIVERGENCE_PROOF: u32 = 1 << 7;
+pub const FEATURE_DOC_MERKLE_STATE: u32 = 1 << 8;
+pub const FEATURE_SNAPSHOT_DELTA_PROOF: u32 = 1 << 9;
+pub const FEATURE_PROTOCOL_LOCK_REQUIRED: u32 = 1 << 10;
+pub const MAX_QUERY_CONTEXT_BYTES: usize = 16 * 1024;
+pub const MAX_QUERY_BYTES: usize = 16 * 1024;
+pub const MAX_TOP_K: usize = 512;
+pub const MAX_SCORE_BYTES: usize = (MAX_TOP_K * (DOC_ID_BYTES + 8)) + 4;
+
+pub const CME_TEXT_PREFIX: &[u8; 8] = b"CME1TXT\0";
+pub const CME_JSON_PREFIX: &[u8; 8] = b"CME1JSN\0";
+pub const CME_KV_PREFIX: &[u8; 8] = b"CME1KVP\0";
+pub const CME_BLOB_PREFIX: &[u8; 8] = b"CME1BLB\0";

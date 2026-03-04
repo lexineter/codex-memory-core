@@ -1,0 +1,3 @@
+[workspace]
+members = ["crates/codex_core", "crates/codex_cli"]
+resolver = "2"
